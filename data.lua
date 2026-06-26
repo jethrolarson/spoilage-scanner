@@ -63,3 +63,8 @@ data:extend(
     combinator_item,
     combinator_recipe,
   })
+
+-- Register our entity with bplib (2.1 API) so it raises extract/overlap events for it,
+-- letting us persist the scanner's mode through blueprints.
+data.raw["mod-data"]["bplib"].data.extract_entity_names["spoilage-scanner"] = true
+data.raw["mod-data"]["bplib"].data.overlap_entity_names["spoilage-scanner"] = true
