@@ -81,14 +81,14 @@ local function update_signals(entity_data)
     if entity_type == "container" or entity_type == "logistic-container"then
         concat_table(inv, entity_data.target.get_inventory(defines.inventory.chest))
     elseif entity_type == "assembling-machine" then
-        concat_table(inv, entity_data.target.get_inventory(defines.inventory.assembling_machine_input))
-        concat_table(inv, entity_data.target.get_inventory(defines.inventory.assembling_machine_output))
+        concat_table(inv, entity_data.target.get_inventory(defines.inventory.crafter_input))
+        concat_table(inv, entity_data.target.get_inventory(defines.inventory.crafter_output))
         if entity_data.target.burner then
             concat_table(inv, entity_data.target.get_inventory(defines.inventory.fuel))
         end
     elseif entity_type == "furnace" then
-        concat_table(inv, entity_data.target.get_inventory(defines.inventory.furnace_source))
-        concat_table(inv, entity_data.target.get_inventory(defines.inventory.furnace_result))
+        concat_table(inv, entity_data.target.get_inventory(defines.inventory.crafter_input))
+        concat_table(inv, entity_data.target.get_inventory(defines.inventory.crafter_output))
     elseif entity_type == "lab" then
         concat_table(inv, entity_data.target.get_inventory(defines.inventory.lab_input))
     elseif entity_type == "reactor" or entity_type == "boiler" then
@@ -101,7 +101,7 @@ local function update_signals(entity_data)
     elseif entity_type == "cargo-landing-pad" then
         concat_table(inv, entity_data.target.get_inventory(defines.inventory.cargo_landing_pad_main))
     elseif entity_type == "agricultural-tower" then
-        concat_table(inv, entity_data.target.get_inventory(defines.inventory.assembling_machine_output))
+        concat_table(inv, entity_data.target.get_inventory(defines.inventory.crafter_output))
     end
 
     -- calculate freshness
